@@ -1,0 +1,51 @@
+{
+  "name": "express-essentials",
+  "version": "1.0.0",
+  "description": "Essential packages for Node.js/Express.js backend development, simplifying setup with a single npm install command.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Md Ruhin Mia",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "helmet": "^4.6.0",
+    "mongoose": "^5.13.7",
+    "passport": "^0.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "joi": "^17.4.2",
+    "express-validator": "^6.16.1",
+    "morgan": "^1.10.0",
+    "debug": "^4.3.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "bcryptjs": "^2.4.3",
+    "csurf": "^1.11.0",
+    "mocha": "^9.1.3",
+    "chai": "^4.3.4"
+  },
+  "devDependencies": {
+    "blessed": "^0.1.81"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/me-ruhin/express-essentials"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "backend",
+    "development",
+    "npm-package"
+  ],
+  "bugs": {
+    "url": "https://github.com/me-ruhin/express-essentials/issues"
+  },
+  "homepage": "https://github.com/me-ruhin/express-essentials",
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
