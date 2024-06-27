@@ -40,3 +40,22 @@ npm install express-essentials --save
 ```bash
 yarn add express-essentials
 ```
+
+## Updating Dependencies
+
+### Update All Dependencies
+
+To update all dependencies in `express-essentials` to their latest versions, run:
+
+```bash
+npm run update
+```
+
+### Update Specific Dependencies
+
+To update specific dependencies within express-essentials, run:
+npm run update:package <package-name1> <package-name2> 
+
+```bash
+npm run update:package body-parser cors mongoose
+```

@@ -1,34 +1,37 @@
 {
   "name": "express-essentials",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Essential packages for Node.js/Express.js backend development, simplifying setup with a single npm install command.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update": "npx npm-check-updates -u && npm install",
+    "update:package": "node scripts/update-package.js"
   },
   "author": "Md Ruhin Mia",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.3",
-    "body-parser": "^1.19.1",
+    "express": "^4.19.2",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "helmet": "^4.6.0",
-    "mongoose": "^5.13.7",
-    "passport": "^0.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "joi": "^17.4.2",
-    "express-validator": "^6.16.1",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.4.4",
+    "passport": "^0.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "joi": "^17.13.3",
+    "express-validator": "^7.1.0",
     "morgan": "^1.10.0",
-    "debug": "^4.3.2",
+    "debug": "^4.3.5",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
+    "moment": "^2.30.1",
     "bcryptjs": "^2.4.3",
     "csurf": "^1.11.0",
-    "mocha": "^9.1.3",
-    "chai": "^4.3.4"
+    "mocha": "^10.5.2",
+    "chai": "^5.1.1"
   },
   "devDependencies": {
-    "blessed": "^0.1.81"
+    "blessed": "^0.1.81",
+    "npm-check-updates": "^16.14.20"
   },
   "repository": {
     "type": "git",
