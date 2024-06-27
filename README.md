@@ -27,7 +27,6 @@ Essential packages for Node.js/Express.js backend development, simplifying setup
 - **Mocha**: Feature-rich JavaScript test framework.
 - **Chai**: BDD/TDD assertion library for Node.js and the browser.
 
-
 ## Installation
 
 Install the package via npm:
@@ -40,22 +39,36 @@ npm install express-essentials --save
 ```bash
 yarn add express-essentials
 ```
+## Features
 
-## Updating Dependencies
+### Manage Packages
 
-### Update All Dependencies
+Easily manage packages within `express-essentials` using npm scripts:
 
-To update all dependencies in `express-essentials` to their latest versions, run:
+#### Update Packages
+
+Update specific packages to their latest versions:
+
+```bash
+npm run packages update <package-name1> <package-name2> ...
+npm run packages update body-parser cors mongoose
+```
+
+
+To update all dependencies in express-essentials to their latest versions, run:
 
 ```bash
 npm run update
 ```
 
-### Update Specific Dependencies
 
-To update specific dependencies within express-essentials, run:
-npm run update:package <package-name1> <package-name2> 
+
+#### Remove Packages
+
+Remove specific packages run:
 
 ```bash
-npm run update:package body-parser cors mongoose
+npm run packages remove <package-name1> <package-name2> 
+npm run packages remove body-parser cors mongoose
+
 ```
