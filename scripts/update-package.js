@@ -1,19 +1,39 @@
 const { exec } = require('child_process');
 const packageJson = require('../package.json');
 
-const packageNames = process.argv.slice(2);
+const action = process.argv[2]; // 'update' or 'remove'
+const packageNames = process.argv.slice(3); // package names to update or remove
+
+if (!action || (action !== 'update' && action !== 'remove')) {
+  console.log('Usage: npm run update:package <update|remove> <package-name1> <package-name2> ...');
+  process.exit(1);
+}
 
 if (packageNames.length === 0) {
-  console.log('No package names provided. Usage: npm run update:package <package-name1> <package-name2> ...');
+  console.log('No package names provided.');
   process.exit(1);
 }
 
-const invalidPackages = packageNames.filter(pkg => !packageJson.dependencies[pkg] && !packageJson.devDependencies[pkg]);
+const removePackages = (packages, callback) => {
+  if (packages.length === 0) {
+    callback();
+    return;
+  }
 
-if (invalidPackages.length > 0) {
-  console.log(`The following packages are not dependencies of this project: ${invalidPackages.join(', ')}`);
-  process.exit(1);
-}
+  const packageName = packages.shift();
+  console.log(`Removing ${packageName}...`);
+
+  exec(`npm uninstall ${packageName}`, (err, stdout, stderr) => {
+    if (err) {
+      console.error(`Error removing ${packageName}:`, err);
+    } else {
+      console.log(stdout);
+      console.error(stderr);
+      console.log(`${packageName} has been removed.`);
+    }
+    removePackages(packages, callback);
+  });
+};
 
 const updatePackages = (packages, callback) => {
   if (packages.length === 0) {
@@ -51,6 +71,12 @@ const updatePackages = (packages, callback) => {
   });
 };
 
-updatePackages(packageNames, () => {
-  console.log('All specified packages have been updated.');
-});
+if (action === 'remove') {
+  removePackages(packageNames, () => {
+    console.log('All specified packages have been removed.');
+  });
+} else if (action === 'update') {
+  updatePackages(packageNames, () => {
+    console.log('All specified packages have been updated.');
+  });
+}
